@@ -1,24 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import {BrowserRouter as Router,Switch,Route} from 'react-router-dom';
+
+import Biodata from './pages/Biodata';
+import AddBiodata from './pages/AddBiodata';
+import EditBiodata from './pages/EditBiodata';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Switch>
+        <Route exact path="/" component={Biodata}/>
+        <Route path="/add-biodata" component={AddBiodata}/>
+        <Route path="/edit-biodata/:uuid" component={EditBiodata}/>
+      </Switch>
+    </Router>
   );
 }
 
